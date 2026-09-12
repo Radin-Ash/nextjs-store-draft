@@ -1,0 +1,38 @@
+[
+  {
+    "name": "avant-garde lamp",
+    "company": "Modenza",
+    "description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge",
+    "featured": true,
+    "image": "https://rosetheme.ir/uploads/webp/723202250656AM-%D9%88%DA%A9%D8%AA%D9%88%D8%B1-%D8%B1%D8%A7%DB%8C%DA%AF%D8%A7%D9%86-%D9%84%D8%A7%D9%85%D9%BE-%DA%A9%D8%A7%D8%BA%D8%B0%DB%8C-%D9%84%D8%A7%D9%85%D9%BE-%D9%88-%DA%86%D8%B1%D8%AE-%D8%AF%D9%86%D8%AF%D9%87-%D9%85%D9%81%D9%87%D9%88%D9%85-%D9%85%D9%87%D9%86%D8%AF%D8%B3%DB%8C.webp",
+    "price": 100,
+    "clerkId": "clerkId"
+  },
+  {
+    "name": "chic chair",
+    "company": "Luxora",
+    "description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge",
+    "featured": true,
+    "image": "https://rosetheme.ir/uploads/webp/725202242724AM-%D9%85%D9%88%DA%A9%D8%A7%D9%BE-%D9%82%D8%A7%D8%A8-%D8%B9%DA%A9%D8%B3-%D8%B1%D9%88%DB%8C-%D8%AF%DB%8C%D9%88%D8%A7%D8%B1-%D8%A8%D9%87-%D9%87%D9%85%D8%B1%D8%A7%D9%87-%D9%86%D9%85%D8%A7%DB%8C-%D8%A7%D8%AA%D8%A7%D9%82-%D8%B4%D8%A7%D9%85%D9%84-%D9%85%D8%A8%D9%84-%D9%88-%D8%B5%D9%86%D8%AF%D9%84%DB%8C-%D9%88-%DA%AF%D9%84%D8%AF%D8%A7%D9%86-%D9%81%D8%A7%DB%8C%D9%84-PSD-%D9%84%D8%A7%DB%8C%D9%87-%D8%A8%D8%A7%D8%B2.webp",
+    "price": 200,
+    "clerkId": "clerkId"
+  },
+  {
+    "name": "comfy bed",
+    "company": "Homestead",
+    "description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge",
+    "featured": true,
+    "image": "https://rosetheme.ir/uploads/webp/529202514400AM-%D9%81%D8%A7%DB%8C%D9%84-PSD-%D9%85%D9%88%DA%A9%D8%A7%D9%BE-%D8%AA%D8%AE%D8%AA.webp",
+    "price": 300,
+    "clerkId": "clerkId"
+  },
+  {
+    "name": "contemporary sofa",
+    "company": "Comfora",
+    "description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge",
+    "featured": false,
+    "image": "https://rosetheme.ir/uploads/webp/519202541639AM-%D9%81%D8%A7%DB%8C%D9%84-PSD-%D9%85%D9%88%DA%A9%D8%A7%D9%BE-%D9%82%D8%A7%D8%A8-%D8%B4%DB%8C%DA%A9-%D8%A8%D8%A7-%D8%A8%D9%88%D9%85-%D8%AE%D8%A7%D9%84%DB%8C-%D9%88-%D9%85%D8%A8%D9%84-%D8%B1%D8%A7%D8%AD%D8%AA.webp",
+    "price": 400,
+    "clerkId": "clerkId"
+  }
+]
