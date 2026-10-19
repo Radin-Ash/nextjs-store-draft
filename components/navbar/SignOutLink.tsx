@@ -6,12 +6,12 @@ import Link from "next/link";
 
 function SignOutLink() {
   const { toast } = useToast();
-  const handleLOgout = () => {
+  const handleLogout = () => {
     toast({ description: "Logout Successful" });
   };
   return (
     <SignOutButton>
-      <Link href="/" className="w-full text-left" onClick={handleLOgout}>
+      <Link href="/" className="w-full text-left" onClick={handleLogout}>
         Logout
       </Link>
     </SignOutButton>
