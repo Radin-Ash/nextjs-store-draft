@@ -3,16 +3,18 @@
 import { db } from "@/lib/db";
 import { product } from "@/lib/db/schema";
 import { redirect } from "next/navigation";
-import { eq, desc, or, ilike, and } from "drizzle-orm";
+import { eq, desc, or, ilike, and, avg, count } from "drizzle-orm";
 import { currentUser, getAuth } from "@clerk/nextjs/server";
 import {
   imageSchema,
   productSchema,
+  reviewSchema,
   validateWithZodSchema,
 } from "@/utils/schemas";
 import { deleteImage, uploadImage } from "@/utils/supabase";
 import { revalidatePath } from "next/cache";
 import { favorite } from "@/lib/db/schema";
+import { review } from "@/lib/db/schema";
 
 const getAuthUser = async () => {
   const user = await currentUser();
@@ -236,11 +238,86 @@ export const createReviewAction = async (
   prevState: any,
   formData: FormData,
 ) => {
-  return { message: "review submitted successfully" };
+  const user = await getAuthUser();
+  try {
+    const rawData = Object.fromEntries(formData);
+    const validatedFields = validateWithZodSchema(reviewSchema, rawData);
+    await db.insert(review).values({
+      ...validatedFields,
+      clerkId: user.id,
+    });
+    revalidatePath(`/products/${validatedFields.productId}`);
+    return { message: "review submitted successfully" };
+  } catch (error) {
+    return renderError(error);
+  }
 };
 
-export const fetchProductReviews = async () => {};
-export const fetchProductReviewsByUser = async () => {};
-export const deleteReviewAction = async () => {};
-export const findExistingReview = async () => {};
-export const fetchProductRating = async () => {};
+export const fetchProductReviews = async (productId: string) => {
+  const reviews = await db
+    .select()
+    .from(review)
+    .where(eq(review.productId, productId))
+    .orderBy(desc(review.createdAt));
+  return reviews;
+};
+
+export const fetchProductRating = async (productId: string) => {
+  const result = await db
+    .select({
+      productId: review.productId,
+      avgRating: avg(review.rating).mapWith(Number),
+      countRating: count(review.rating),
+    })
+    .from(review)
+    .where(eq(review.productId, productId))
+    .groupBy(review.productId);
+
+  // empty array if no reviews
+  return {
+    rating: result[0]?.avgRating?.toFixed(1) ?? 0,
+    count: result[0]?.countRating ?? 0,
+  };
+};
+
+export const fetchProductReviewsByUser = async () => {
+  const user = await getAuthUser();
+  const reviews = await db.query.review.findMany({
+    where: eq(review.clerkId, user.id),
+    columns: {
+      id: true,
+      rating: true,
+      comment: true,
+    },
+    with: {
+      product: {
+        columns: {
+          image: true,
+          name: true,
+        },
+      },
+    },
+  });
+  return reviews;
+};
+
+export const deleteReviewAction = async (prevState: { reviewId: string }) => {
+  const { reviewId } = prevState;
+  const user = await getAuthUser();
+
+  try {
+    await db
+      .delete(review)
+      .where(and(eq(review.id, reviewId), eq(review.clerkId, user.id)));
+    revalidatePath("/reviews");
+    return { message: "Review deleted successfully" };
+  } catch (error) {
+    return renderError(error);
+  }
+};
+
+export const findExistingReview = async (userId: string, productId: string) => {
+  return db.query.review.findFirst({
+    where: and(eq(review.clerkId, userId), eq(review.productId, productId)),
+  });
+};
