@@ -1,3 +1,18 @@
+import { db } from "@/lib/db";
+import { cartItem } from "@/lib/db/schema";
+import { eq } from "drizzle-orm";
+
+const cartItemWithProductQuery = db.query.cartItem.findFirst({
+  where: eq(cartItem.id, ""),
+  with: {
+    product: true,
+  },
+});
+
+export type CartItemWithProduct = NonNullable<
+  Awaited<typeof cartItemWithProductQuery>
+>;
+
 export type actionFunction = (
   prevState: any,
   formData: FormData,
